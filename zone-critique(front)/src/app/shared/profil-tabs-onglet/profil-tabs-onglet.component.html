@@ -1,0 +1,52 @@
+<div class="tabs ">
+    <!-- Onglets -->
+    <ul class="tab-titles flex space-x-4 cursor-pointer">
+      <li 
+        *ngFor="let tab of tabs; let i = index"
+        [class.active]="activeTab === i"
+        [class.bg-yellow-button]="activeTab === i"
+        [class.text-black]="activeTab === i"
+        (click)="selectTab(i)"
+        class="py-2 px-4 rounded-lg font-bold hover:bg-yellow-button hover:text-black transition-all duration-300 ">
+        {{ tab.title }}
+      </li>
+    </ul>
+
+    
+  
+    <!-- Contenu des onglets -->
+    <div class="tab-content mt-4">
+      <div *ngFor="let tab of tabs; let i = index" [ngClass]="{'hidden': activeTab !== i}">
+        <div *ngIf="activeTab === i">
+
+            <ng-container *ngFor="let media of mediaList">
+                <div *ngIf="media.type === tab.title" class="flex items-start py-3 pr-3 rounded-md mb-4 hover:bg-[#2c3e50] cursor-pointer h-44">
+                    <div class="flex items-start">
+                        <img [src]="'http://localhost:8080/api/media/image/' + media.image.replace('/uploads/', '')" alt="image de {{media.titre}}" class="w-40 h-36 aspect-square object-contain rounded-md">
+                    </div>
+                    <div class="flex flex-col justify-between w-full h-full">
+                        <div>
+                            <p class="font-bold">{{ media.titre }}</p>
+                            <p>{{media.type}}</p>
+                        </div>
+                        <p>1/1</p>
+                        <div class="flex items-center mb-1.5">
+                            <div class=" flex w-full bg-gray-300 rounded-md mt-2">
+                                <div 
+                                  class="h-2 bg-yellow-400 rounded-md transition-all duration-500" 
+                                  [ngStyle]="{'width': progressPercentage + '%'}"> 
+                                </div>
+                            </div>
+                            <p class="ml-2">0%</p>
+                        </div>
+
+                    </div>
+
+
+                </div>
+              </ng-container>
+            
+        </div>
+      </div>
+    </div>
+</div>

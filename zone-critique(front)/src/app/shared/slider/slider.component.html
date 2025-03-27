@@ -1,0 +1,55 @@
+<div class="my-5 bg-background">
+    <div class="flex justify-between items-baseline">
+      <div class="w-11/12 mr-2.5">
+        <div class="flex items-center w-full justify-between">
+          <h1 class="text-2xl mr-2 ">{{ categorie }}</h1>
+          <app-drop-down-menu *ngIf="cardType === 'customProfil'"></app-drop-down-menu>
+        </div>
+        <hr class="my-3 border-t border-white mb-6">
+      </div>
+      <div class="flex gap-2">
+        <button
+          class="text-white p-2  rounded-full cursor-pointer"
+          (click)="goToPrevious()"
+          [disabled]="isAtStart()"
+          [ngStyle]="{
+            'border': isAtStart() ? 'none' : '2px solid white',
+            'pointer-events': isAtStart() ? 'none' : 'auto'
+          }">
+          <fa-icon [ngStyle]="{'opacity': isAtStart() ? '0.5' : '1',}"  [icon]="faArrowLeft"></fa-icon>
+        </button>
+        <button
+        class="text-white p-2 border-2  rounded-full cursor-pointer"  
+          (click)="goToNext()"
+          [disabled]="isAtEnd()"
+          [ngStyle]="{
+            'opacity': isAtEnd() ? '0.5' : '1',
+            'pointer-events': isAtEnd() ? 'none' : 'auto'
+          }">
+          <fa-icon [ngStyle]="{'opacity': isAtEnd() ? '0.5' : '1',}" class="text-white" [icon]="faArrowRight"></fa-icon>
+        </button>
+      </div>
+    </div>
+  
+    <!-- Swiper avec breakpoints pour la responsivité -->
+    <swiper-container 
+    class="gap-3 w-full"
+      #swiper 
+      [slides-per-view]="5" 
+      class="gap-3"
+      [breakpoints]="{
+        '640': { 'slidesPerView': 2, 'spaceBetween': 10 },
+        '768': { 'slidesPerView': 3, 'spaceBetween': 15 },
+        '1024': { 'slidesPerView': 5, 'spaceBetween': 20 }
+      }">
+      <swiper-slide class="flex justify-between" *ngFor="let media of mediaList">
+        <ng-container *ngIf="cardType === 'default'">
+          <app-card [media]="media" [review]="findReviewForMedia(media.id)" ></app-card>
+        </ng-container>
+        <ng-container *ngIf="cardType === 'customProfil'">
+          <app-profil-card [media]="media" [review]="findReviewForMedia(media.id)"></app-profil-card>
+        </ng-container>
+      </swiper-slide>
+    </swiper-container>
+  </div>
+  

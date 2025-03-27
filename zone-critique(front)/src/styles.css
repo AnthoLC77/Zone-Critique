@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+
+    --font-inter : Inter, sans-serif;
+    --font-domine : Domine, sans-serif;
+    --font-heading : Kumbh Sans, sans-serif;
+    --font-body : Noto Sans Old Hungarian', 'sans-serif;
+
+    --color-black-text : #000;
+    --color-yellow-button: #FFBD3F;
+    --color-background : #080a1b;
+    --color-primary : #96a3e8;
+    --color-secondary : #162998;
+    --color-accent : #203fee;
+    --color-customBorder : #424E6F;
+
+    --text-fontSize : 4.210rem;
+
+    --animate-slideUp-animation: slideUp 0.3s ease-in-out;
+
+    @keyframes slideUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20%);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+}
+

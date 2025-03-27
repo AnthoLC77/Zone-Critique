@@ -1,0 +1,28 @@
+.scrolled {
+    background-color: rgba(0, 0, 0, 0.8); /* Change la couleur d'arrière-plan */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajoute une ombre */
+    transition: all 0.3s ease; /* Transition fluide */
+    min-height: 20px;
+}
+
+/* Applique le style uniquement à la search-bar-results */
+.search-bar-results::-webkit-scrollbar {
+    width: 8px; /* Largeur de la scrollbar */
+}
+
+/* Couleur de fond de la scrollbar */
+.search-bar-results::-webkit-scrollbar-track {
+    background: #1a2238; /* Même couleur que le dropdown */
+    border-radius: 4px;
+}
+
+/* Couleur et apparence de la barre de défilement */
+.search-bar-results::-webkit-scrollbar-thumb {
+    background: oklch(0.795 0.184 86.047); /* Couleur de la scrollbar */
+    border-radius: 4px;
+}
+
+/* Effet au survol */
+.search-bar-results::-webkit-scrollbar-thumb:hover {
+    background: #ff4500; /* Couleur plus foncée au survol */
+}

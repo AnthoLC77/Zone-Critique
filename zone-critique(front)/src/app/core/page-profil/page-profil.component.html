@@ -1,0 +1,45 @@
+<app-header></app-header>
+<div class="h-full flex justify-center items-center">
+    <div class="w-9/12 flex">
+        <div class="min-w-80 w-1/4 flex flex-col p-5 border-x-2 border-white/10">
+            <div class="">
+                <img src="ppf.jpg" alt="image de profil">
+            </div>
+            <div>
+                <p class="text-3xl font-bold my-3 capitalize">{{userData?.username}}</p>
+                <div class="flex justify-between w-full px-8">
+                    <div class="flex flex-col justify-center items-center">
+                        <p>{{totalMedia}}</p>
+                        <hr class="w-7 text-white/45 my-2">
+                        <p>Terminée</p>
+                    </div>
+                    <div class="flex flex-col justify-center items-center">
+                        <p>0</p>
+                        <hr class="w-7 text-white/45 my-2">
+                        <p>En cours</p>
+                    </div>
+                    <div class="flex flex-col justify-center items-center">
+                        <p>0</p>
+                        <hr class="w-7 text-white/45 my-2">
+                        <p>Envie</p>
+                    </div>
+                </div>
+                <p class="mt-5">Passionné de cinéma, de jeux vidéo et de bandes dessinées, je partage ici mes critiques et découvertes.
+                     Toujours à la recherche d'œuvres marquantes, j’adore échanger autour de mes coups de cœur… et de mes déceptions !" 🎬🎮📖
+                </p>
+                <app-stat-profil [userId]="userData.id" ></app-stat-profil>
+            </div>
+        </div>
+
+        <!-- Right partie -->
+        <div class="w-3/4 border-r-2 border-white/10 px-10 py-5">
+            <div class="flex flex-col">
+                <div class="flex justify-between">
+                </div>
+                <div class="max-w-fit w-full">
+                    <app-slider [categorie]="'Collection'" [mediaList]="reviews"  [cardType]="'customProfil'"></app-slider>
+                </div>
+                <app-profil-tabs-onglet [mediaList]="mediaList"></app-profil-tabs-onglet>
+            </div>   
+    </div>
+</div>

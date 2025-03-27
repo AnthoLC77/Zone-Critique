@@ -1,0 +1,10 @@
+.text-with-image {
+    font-size: 80px;
+    font-weight: bold;
+    background-image: url('https://www.manga-news.com/public/images/series/.kingdom-1-meian_large.webp');
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+  }

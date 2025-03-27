@@ -1,0 +1,59 @@
+<app-header></app-header>
+<div class=" relative w-9/12 mx-auto mt-10 flex flex-col justify-center">
+    <div class="relative">
+        <h2 class="text-4xl text-black font-extrabold uppercase mb-6 bg-yellow-button p-2 w-fit relative">
+            {{isEditMode ? 'Modifier une oeuvre' : 'Creer une oeuvre'}}
+            
+            <span class="block w-10 h-14 bg-linear-to-br from-yellow-button from-50% to-50%    absolute -right-10 top-0"></span>
+        </h2>
+    </div>
+        <div class="bg-[#1a2238] p-7 rounded-sm ">
+            <form [formGroup]="mediaForm" (ngSubmit)="onSubmit()" enctype="multipart/form-dataS">
+                <h3 class="text-lg mb-10">Informations principales</h3>
+                <div class="my-7 flex items-baseline">
+                    <label class="w-3xs font-semibold text-xl"for="titre">Titre</label>
+                    <input class="bg-white text-black p-2 w-lg" type="text" formControlName="titre" id="titre" placeholder="Saisir le titre original...">
+                </div>
+            
+                
+                <div class="my-7 flex items-baseline">
+                    <label class="w-3xs font-semibold text-xl"for="titre">Image</label>
+                    <div class="my-7 flex items-baseline flex-col">
+                        <label for="file-upload" 
+                               class="cursor-pointer bg-yellow-button text-black font-bold px-4 py-2 rounded-md shadow-sm hover:bg-yellow-500 transition mb-7">
+                                Ajouter une jaquette
+                        </label>
+                        <input class="bg-white mr-7 mb-5 hidden" (change)="onFileSelected($event)" type="file" id="file-upload"  accept="image/*" required>
+                        <img class="w-36 h-36 object-cover border border-gray-300 hover:scale-110 transition-transform duration-300" *ngIf="imagePreview" [src]="imagePreview" alt="">
+                    </div>
+                </div>
+            
+                <div class="my-7 flex items-baseline">
+                    <label class="w-3xs font-semibold text-xl"for="titre">Date de sortie</label>
+                    <input class="bg-white text-black p-2 " type="date" formControlName="date" required>
+                </div>
+            
+                <div class="my-7 flex items-baseline">
+                    <label class="w-3xs font-semibold text-xl"for="titre">Résumé</label>
+                    <textarea class="bg-white text-black p-2 max-h-16 w-lg" name="resume" formControlName="resume" id="resume" rows="4" placeholder="Ajouter un résumé..."></textarea>
+                </div>
+            
+                <div class="my-7 flex items-baseline">
+                    <label class="w-3xs font-semibold text-xl"for="titre">Type</label>
+                    <select class="bg-white p-2 text-black" name="type" formControlName="type" id="type">
+                        <option value="">Choisissez un type</option>
+                        <option class="text-black" value="BD">Bande dessinée</option>
+                        <option class="text-black"value="FILM">Film</option>
+                        <option class="text-black"value="JEU_VIDEO">Jeu vidéo</option>
+                    </select>
+                </div>
+                <div class="w-full flex items-end justify-end">
+                     <button class="bg-yellow-button p-2 text-black rounded-sm cursor-pointer font-bold hover:bg-yellow-500 " type="submit" [disabled]="mediaForm.invalid">
+                        {{isEditMode ? 'Modifier l\'oeuvre' : 'Creer l\'oeuvre'}}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+

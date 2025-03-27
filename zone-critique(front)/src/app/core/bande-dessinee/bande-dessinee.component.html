@@ -1,0 +1,12 @@
+<app-header></app-header>
+<div class=" relative w-9/12 mx-auto mt-10 flex flex-col justify-center">
+    <div class="leading-none mb-5">
+        <h1 class="text-5xl font-extrabold uppercase">Bande Dessinée</h1>
+        <p class="font-bold text-xl bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 bg-clip-text text-transparent uppercase">
+            "Plongez dans votre prochaine aventure graphique captivante"
+        </p>
+    </div>
+    <app-slider [cardType]="'default'" [categorie]="'Les bandes dessinées du moment'" [typeDeMedia]="'BD'" [reviews]="reviews"></app-slider>
+    <app-slider [cardType]="'default'" [categorie]="'Les prochaines sorties'" [typeDeMedia]="'BD'"[reviews]="reviews"></app-slider>
+    <app-slider [cardType]="'default'" [categorie]="'Les Incontournables'" [typeDeMedia]="'BD'"[reviews]="reviews"></app-slider>
+</div>

@@ -1,0 +1,40 @@
+<app-header></app-header>
+<div class=" relative w-9/12 mx-auto mt-10 flex flex-col justify-center">
+    <div class="relative">
+        <h2 class="text-4xl text-black font-extrabold uppercase mb-6 bg-yellow-button p-2 w-fit relative">
+            Modification de votre Profil
+            
+            <span class="block w-10 h-14 bg-linear-to-br from-yellow-button from-50% to-50%    absolute -right-10 top-0"></span>
+        </h2>
+    </div>
+        <div class="bg-[#1a2238] p-7 rounded-sm ">
+            <form [formGroup]="profileForm"  (ngSubmit)="updateUser()">
+                <h3 class="text-2xl mb-10 font-semibold">Informations principales</h3>
+                <div class="my-7 flex items-baseline">
+                    <label class="w-3xs font-semibold text-xl" for="username">Nom d'utilisateur</label>
+                    <div>
+                        <input class="bg-white text-black p-2 w-lg" type="text" formControlName="username" name="username" placeholder="Saisir le titre original...">
+                        <p class="text-red-500 font-extrabold" *ngIf="errorMessage['username']">{{errorMessage['username']}}</p>
+                    </div>
+                </div>
+                <div class="my-7 flex items-baseline">
+                    <label class="w-3xs font-semibold text-xl" for="name">Prénom</label>
+                    <input class="bg-white text-black p-2 w-lg" type="text" formControlName="name" name="name" placeholder="Saisir le titre original...">
+                </div>
+                <div class="my-7 flex items-baseline">
+                    <label class="w-3xs font-semibold text-xl" for="email">Email</label>
+                    <div>
+                        <input class="bg-white text-black p-2 w-lg" type="email" formControlName="email" name="email" placeholder="Saisir le titre original...">
+                        <p class="text-red-500 font-extrabold" *ngIf="errorMessage['email']">{{errorMessage['email']}}</p>
+                    </div>
+                </div>
+                <div class="w-full flex items-end justify-end">
+                     <button class="bg-yellow-button p-2 text-black rounded-sm cursor-pointer font-bold hover:bg-yellow-500 " type="submit" >
+                        Mettre à jour !
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+

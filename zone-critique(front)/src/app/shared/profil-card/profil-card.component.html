@@ -1,0 +1,25 @@
+<div class="relative group w-40 h-72 cursor-pointer">
+    <div class="relative">
+      <img [src]="'http://localhost:8080/api/media/image/' + media.media.image.replace('/uploads/', '')" alt="image du media" class="w-full min-h-60 max-h-60 object-cover rounded-md">
+
+      <div class="absolute right-14 -bottom-4 flex items-center justify-center">
+        <div class="rounded-full border-4 border-yellow-500 bg-black/60 w-9 h-9 flex items-center justify-center transition-all duration-500 opacity-100 group-hover:opacity-0">
+          <span class="font-bold p-2">{{ media.rating }}</span>
+        </div>
+      </div>
+
+        <div 
+          class="absolute inset-0 w-full h-full bg-black/50 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all"
+          [routerLink]="['/details', media.media.id]"
+        >
+          <span class="text-lg font-bold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 hover:text-yellow-400">
+            Détails
+          </span>
+        </div>
+    </div>
+  
+    <p class="text-center mt-4 text-lg overflow-hidden whitespace-nowrap text-ellipsis w-full font-semibold">
+      {{ media.media.titre }} 
+    </p>
+  </div>
+  

@@ -1,0 +1,87 @@
+<app-header></app-header>
+<div class="absolute w-full h-96 text-[#96A2C1] ">
+    <div 
+        class="absolute top-0 left-0 w-full h-72 bg-cover bg-center filter backdrop-blur-md"
+        [style.backgroundImage]="'url(' + (media?.imageBg ? media?.imageBg : '4313_rot_preview.jpg') + ')'">
+        <div class="absolute inset-0 bg-black opacity-65"></div>
+    </div>
+</div>
+<div class="relative w-9/12 top-customTop mx-auto mt-20 flex justify-start h-auto">
+    <div class="w-full absolute top-18 flex">
+        <div class="flex-col w-4/4">
+            <div class="flex ">
+                <h1 class="text-5xl font-black mb-4 mr-5">{{ media?.titre }}</h1>
+                <div class="flex items-center" *ngIf="user" >
+                    <button class="border border-yellow-500 bg-yellow-500 hover:bg-yellow-400 p-2 rounded-sm mr-2 font-semibold cursor-pointer" (click)="onEditClick()">Modifier</button>
+                    <button class="border border-red-500 bg-red-500 p-2  hover:bg-red-400 rounded-sm font-semibold cursor-pointer" (click)="deleteMedia()">Supprimer</button>
+                </div>
+            </div>
+            <hr class="opacity-15 z-0 ">
+            <div class="flex items-center">
+                <app-progress-circle [note]="media?.noteGeneral || 0" [label]="'General'"></app-progress-circle>
+                <hr class="w-5 rotate-90 mx-3">
+                <app-progress-circle [note]="media?.noteAmis || 0" [label]="'Amis'"></app-progress-circle>
+                <hr class="w-5 rotate-90 mx-3">
+                <app-rating-bar *ngIf="media" [mediaId]="media.id" [userId]="user?.id"></app-rating-bar>
+                <hr class="w-5 rotate-90 mx-3">
+                <div class="flex items-baseline max-h-56">
+                    <div>
+                        <button
+                            class="icon-button text-white fa-sm m-2 p-2 border-2 rounded-full cursor-pointer"
+                            [ngClass]="{ 'active': isActiveStates[0] }"
+                            (click)="toggleIcon(0)">
+                            <fa-icon *ngIf="isIconStates[0]" [icon]="faFlagSolid"></fa-icon>
+                            <fa-icon *ngIf="!isIconStates[0]" [icon]="faFlagRegular"></fa-icon>
+                        </button>
+                    </div>
+                    <div>
+                        <button 
+                            class="icon-button text-white fa-sm m-2 p-2 border-2 rounded-full cursor-pointer"
+                            [ngClass]="{ 'active': isActiveStates[2] }">
+                            <fa-icon [icon]="faSolidReply"></fa-icon>
+                            
+                        </button>
+                    </div>
+                    <div>
+                        <button
+                            class="icon-button text-white fa-sm m-2 p-2 border-2 rounded-full cursor-pointer"
+                            [ngClass]="{ 'active': isActiveStates[1] }"
+                            (click)="toggleIcon(1)">
+                            <fa-icon *ngIf="isIconStates[1]" [icon]="faHeartRegular"></fa-icon>
+                            <fa-icon *ngIf="!isIconStates[1]" [icon]="faHeartSolid"></fa-icon>
+                        </button>
+                    </div>
+                    
+                </div>     
+            </div>
+            <hr class="opacity-15 -z-0 mb-5">
+            <div class="flex flex-col justify-baseline h-96 ">
+                <p class="text-lg mb-3"><span class="font-bold text-xl">Catégorie :</span>  {{ transformType(media?.type)}}</p>
+                <p class="text-lg mb-3"><span class="font-bold text-xl">Sortie le :</span>  {{ media?.date}}</p>
+                <p class="text-lg mb-3" ><span class="font-bold text-xl">Genre : </span>  Action, Rpg</p>
+                <p class="w-11/12 text-lg mb-3"><span class="font-bold text-xl">Resume :</span>  {{ media?.resume}}</p>
+            </div>
+        </div>
+        <div class="flex flex-col w-96">
+            <img *ngIf="media?.image" 
+            class="w-96 h-64 z-10 object-cover" 
+            [src]="'http://localhost:8080/api/media/image/' + media?.image?.replace('/uploads/', '')" 
+            alt="Image du media">
+            <div class="flex justify-between ">
+                <div class="border-l-2 border-b-2 border-t-2 p-2 border-customBorder hover:bg-[#111533] w-2/6 rounded-bl-3xl flex justify-center items-center">
+                    <fa-icon class="text-white mr-2 text-xs" [icon]="faChevronLeft"></fa-icon>
+                    <button class="cursor-pointer">Precédent</button>
+                </div>
+                <div class="border-2 border-customBorder hover:bg-[#111533] flex justify-center w-2/6 items-center">
+                    <button class="cursor-pointer">Series</button>
+                    <fa-icon class="text-white ml-2 text-xs" [icon]="faChevronUp"></fa-icon>
+                </div>
+                <div class="border-r-2 border-b-2 border-t-2 border-customBorder hover:bg-[#111533] w-2/6 rounded-br-3xl flex justify-center items-center">
+                    <button class="cursor-pointer">Suivant</button>
+                    <fa-icon class="text-white ml-2 text-xs" [icon]="faChevronRight"></fa-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
