@@ -22,7 +22,7 @@
             <ng-container *ngFor="let media of mediaList">
                 <div *ngIf="media.type === tab.title" class="flex items-start py-3 pr-3 rounded-md mb-4 hover:bg-[#2c3e50] cursor-pointer h-44">
                     <div class="flex items-start">
-                        <img [src]="'http://localhost:8080/api/media/image/' + media.image.replace('/uploads/', '')" alt="image de {{media.titre}}" class="w-40 h-36 aspect-square object-contain rounded-md">
+                        <img [src]="'http://localhost:8081/api/media/image/' + media.image.replace('/uploads/', '')" alt="image de {{media.titre}}" class="w-40 h-36 aspect-square object-contain rounded-md">
                     </div>
                     <div class="flex flex-col justify-between w-full h-full">
                         <div>
