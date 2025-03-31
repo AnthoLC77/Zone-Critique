@@ -1,7 +1,7 @@
 <div class="w-60 rounded-md bg-[#1a2238]/40 cursor-pointer shadow-xl text-white">
     <div class="pt-5 pr-3 pl-3">
       <div class="relative group w-full">
-        <img [src]="'http://localhost:8080/api/media/image/' + media.image.replace('/uploads/', '')" alt="image du media" class="w-full object-cover h-96 rounded-md">
+        <img [src]="'http://localhost:8081/api/media/image/' + media.image.replace('/uploads/', '')" alt="image du media" class="w-full object-cover h-96 rounded-md">
 
         <div *ngIf="review?.rating" class="absolute inset-0 border-r-4 border-b-4 border-yellow-500 bg-black/70 rounded-sm w-10 h-10 flex items-center justify-center">
             <span class="font-bold">{{review?.rating}}</span>

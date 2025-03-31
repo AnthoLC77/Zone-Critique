@@ -8,7 +8,7 @@ import { AuthResponse } from '../models/auth.model';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = "http://localhost:8080/api/auth"
+  private apiUrl = "http://localhost:8081/api/auth"
   private userSubject = new BehaviorSubject<User | null>(null);
  
   constructor(

@@ -8,7 +8,7 @@ import { User } from '../models/user.model';
   providedIn: 'root'
 })
 export class MediaServiceService {
-  private apiUrl = "http://localhost:8080/api/media"
+  private apiUrl = "http://localhost:8081/api/media"
   constructor(
     private http: HttpClient
   ) { }
