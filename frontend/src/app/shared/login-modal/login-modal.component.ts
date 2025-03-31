@@ -58,6 +58,8 @@ export class LoginModalComponent {
       this.formSubmitted = false
       console.log("Formulaire valide", this.registerForm.value);
 
+      alert("Inscription Réussi !")
+
       const newUser: User = {
         username: this.registerForm.value.username,
         name: this.registerForm.value.name,

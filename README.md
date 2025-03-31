@@ -34,13 +34,30 @@ cd Zone-Critique
 
 ```
 
-### 3️⃣ Lancer le projet avec Docker Compose
+### 3️⃣ Préparer le backend pour le déploiement
+
+```sh 
+cd backend
+mvn clean package
+
+```
+
+### 4️⃣ Préparer le frontend pour le déploiement
+
+```sh
+cd frontend
+npm install 
+ng build --configuration=production
+
+```
+
+### 5️⃣ Lancer le projet avec Docker Compose
 
 ```sh
 docker-compose up -d --build
 
 ```
-4️⃣ Accéder à l'application
+### 6️⃣ Accéder à l'application
 
 Frontend Angular : http://localhost:8080
 
@@ -48,7 +65,7 @@ Backend Spring Boot (API) : http://localhost:8081
 
 MySQL (via un outil comme MySQL Workbench) : localhost:3307
 
-6️⃣ Arrêter les conteneurs
+### 7️⃣ Arrêter les conteneurs
 
 Si vous souhaitez arrêter les services, utilisez la commande :
 

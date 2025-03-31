@@ -47,7 +47,7 @@ export class MediaFormComponent implements OnInit {
             type: media?.type
           })
 
-          this.imagePreview = media?.image ? `http://localhost:8080/api/media/image/${media?.image.replace('/uploads/', '')}` : null;
+          this.imagePreview = media?.image ? `http://localhost:8081/api/media/image/${media?.image.replace('/uploads/', '')}` : null;
 
         },
         error: (err) => console.error('Erreur lors du chargement du média', err)
@@ -90,7 +90,7 @@ export class MediaFormComponent implements OnInit {
       formData.append('file', fileInput);
     } else if (this.isEditMode && this.imagePreview) {
       // Si en mode édition, envoie le chemin de l'image actuelle pour la conserver
-      formData.append('image', this.imagePreview.replace('http://localhost:8080/api/media/image/', ''));
+      formData.append('image', this.imagePreview.replace('http://localhost:8081/api/media/image/', ''));
     }
       if (this.isEditMode && this.mediaId) {
         this.mediaService.updateMedia(this.mediaId, formData).subscribe({
